@@ -58,8 +58,10 @@
                             <li><a href="./index.html" class="header-link">Home</a></li>
                             <li><a href="./privacy.html" class="header-link">Privacy policy</a></li>
                             <li><a href="./support.html" class="header-link">Сontacts</a></li>
-                            <li><a href="#" class="header-link header-link__btn-login">LogIn</a></li>
-                            <li><a href="#" class="header-link header-link__btn-regist">Register</a></li>
+                            <li><a href="#" onclick="openModalLogin()" id="loginButton"
+                                    class="header-link header-link__btn-login">LogIn</a></li>
+                            <li><a href="#" onclick="openModalRegistration()" id="registrationButton"
+                                    class="header-link header-link__btn-regist">Register</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -121,7 +123,7 @@
         </div>
 
 
-        <div class="play">
+        <div class="play" id="play">
             <div class="container">
                 <div class="play-wrap">
                     <h1 class="play-title">
@@ -263,8 +265,63 @@
             </div>
         </div>
 
+    </div>
+
+    <!-- Регистарция -->
+    <div class="reglogin-overlay" id="modalContainer">
+        <div class="reglogin-popup bg-white rounded">
+            <button class="close_modal_btn" id="closeModal">x</button>
+
+            <div class="row" id="loginForm">
+                <form id="login">
+                    <div class="col-12">
+                        <p class="modal_login_title">Login</p>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <div class="mx-auto">
+                            <input required type="text" placeholder="Your email" id="username" name="username"
+                                class="login_modal_input">
+                        </div>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <div class="mx-auto">
+                            <input required type="password" placeholder="Your password" id="password" name="password"
+                                class="login_modal_input">
+                        </div>
+                    </div>
+                    <button type="submit" class="login_modal_btn">Log In</button>
+                </form>
+                <p class="mt-4 text-center">Don't have an account? <a href="#" id="switchToRegistration">Register</a>
+                </p>
+            </div>
+
+            <div class="row" id="registrationForm" class="hidden">
+                <form>
+                    <div class="col-12">
+                        <p class="modal_login_title">Registration</p>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <div class="mx-auto">
+                            <input required type="text" placeholder="Your email" id="username" name="username"
+                                class="login_modal_input">
+                        </div>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <div class="mx-auto">
+                            <input required type="password" placeholder="Your password" id="password" name="password"
+                                class="login_modal_input">
+                        </div>
+                    </div>
+                    <button type="submit" class="login_modal_btn">Register</button>
+                </form>
+                <p class="mt-4 text-center">Already have an account? <a href="#" id="switchToLogin">Log In</a></p>
+            </div>
+        </div>
+
 
     </div>
+    <!-- Затемнение фона -->
+    <div class="fixed inset-0 bg-black opacity-50 z-25" id="overlay"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
